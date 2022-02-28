@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mobile Quest</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <!-- Search Phone -->
+        <header class="container mt-4 col-md-6 mx-auto">
+            <h2 class="text-primary mb-4 text-center">Search Your Favorite Phone </h2>
+            
+        </header>
+        <div class="container mx-auto w-75">
+            <span class="border p-1 d-flex search-container ">
+                <input id="query" type="text" class="border-0 flex-grow-1 search-box" placeholder=" Type name and hit Enter ">
+                <span class="hints">Ctrl + /</span>
+            </span>
+        </div>
+
+        <!-- Display card on the ui -->
+        <div id="search-result" class="container mx-auto mt-4 row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4">
+        </div>
+
+        <script src="js/app.js"></script>
+    </body>
+
+</html>
