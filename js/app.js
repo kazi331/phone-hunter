@@ -10,7 +10,6 @@ document.addEventListener('keyup', (e) => {
 
 
 
-
 // enable spinner 
 function enableSpinner() {
     countryContainer.innerHTML = `
