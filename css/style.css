@@ -1,9 +1,14 @@
+body{
+    color: white;
+    /* background-color: #36414c; */
+}
 .search-box {
     outline: none;
     padding: 0px 10px;
-    color: #8d99aa;
+    color: #78828f;
     font-size: 1.1em;
     border-radius: 5px;
+    /* background-color: #36414c; */
 }
 
 .search-container {
@@ -11,9 +16,7 @@
     border-radius: 5px;
     user-select: none;
 }
-.search-container:focus{
-    border: 1px solid red !important;
-}
+
 
 .hints {
     color: #8d99aa;
@@ -22,10 +25,65 @@
     padding: 1px 8px;
     font-weight: 500;
 }
+.brand{
+    margin-bottom: 0 !important;
+}
+.brand span{
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    padding: 1px 6px;
+}
+.brand-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.brand-detail button{
+    background-color: #0d6efd;
+    color: white !important;
+    border-radius: 4px;
+    padding: 0px 6px;
+    color: black;
+    text-decoration: none;
+    border:none;
+}
+.brand-detail button:hover{
+    cursor: pointer;
+}
+
+.card{
+    padding: 20px;
+    border-radius: 10px !important;
+    padding-bottom: .5rem;
+    box-shadow: 0px 0px 12px 8px #72727212, 0 0 2px 2px #80808014;
+    border:none;
+}
+.empty {
+    display: none;
+    background: #ff612f;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* spinner style and animation  */
-
+#spinner{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+}
 
 .sk-chase {
     width: 40px;
