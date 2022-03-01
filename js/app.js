@@ -61,6 +61,8 @@ function details(id) {
 function showDetails(phone) {
     const features = phone.mainFeatures;
     const others = phone.others;
+  
+    // console.log(singleSensor)
     const detailContainer = document.getElementById('detail-container');
     const modal = document.createElement('div');
     modal.classList.add('card');
@@ -88,7 +90,15 @@ function showDetails(phone) {
               <p class="text-center main"> Main Features </p>
               <p>Chipset: <span> ${features.chipSet} </span></p>
                     <p>Display: <span> ${features.displaySize} </span></p>
-                    <p>Sensors: <span> ${features.sensors} </span></p>
+                    <p>Sensors: 
+                    <span> ${features.sensors[0]}</span>
+                    <span> ${features.sensors[1]? features.sensors[1]:''} </span>
+                    <span> ${features.sensors[2]? features.sensors[2]:''} </span>
+                    <span> ${features.sensors[3]? features.sensors[3]:''} </span>
+                    <span> ${features.sensors[4]? features.sensors[4]:''} </span>
+                    <span> ${features.sensors[5]? features.sensors[5]:''} </span>
+                    <span> ${features.sensors[6]? features.sensors[6]:''} </span>
+                    </p>
                     <p class="text-center others"> Others </p>
                     <p>Bluetooth: <span> ${others.Bluetooth} </span></p>
                     <p>GPS: <span> ${others.GPS} </span></p>
