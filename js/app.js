@@ -7,22 +7,12 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
-const searchValue = query.value;
-
-// fetch phone from api 
-function loadPhones() {
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => console.log(data));
-}
-
 // display data on ui 
 function displayPhone(phones) {
     console.log(phones);
 }
 
-loadPhones();
+// loadPhones();
 
 // load spinner 
 const spinner = document.getElementById('spinner');
@@ -64,6 +54,23 @@ function empty(isEmpty) {
     }
 };
 
+
+function details(id) {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>showDetails(data));
+    console.log(url);
+
+
+}
+function showDetails(country){
+    console.log(country);
+}
+
+
+
+
 // Display phones on the ui 
 function displayPhones(phones) {
     if (phones.length < 1) {
@@ -83,22 +90,14 @@ function displayPhones(phones) {
                 <img src="${phone.image}" class="card-img-top" alt="${phone.phone_name}">
                 <div class="card-body">
                     <h5 class="card-title">${phone.phone_name}</h5>
-                    <div class="brand-detail"> <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p> <button onclick="details()">Details</button> </div>
+                    <div class="brand-detail"> <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p> <button onclick="details('${phone.slug}')">Details</button> </div>
                 </div>
             </div>
         `;
         resultContainer.appendChild(div);
         spinnerAction(false);
-
-        /* const id = phone.slug;
-        const url2 = `https://openapi.programming-hero.com/api/phone/${id}`;
-        console.log(url2);
-        return url2; */
     });
 }
 
 // Show Details on the ui 
 
-function loadDetails() {
-    fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
-}
