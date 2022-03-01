@@ -27,8 +27,7 @@ query.addEventListener('keyup', (e) => {
     }
 });
 
-
-
+const detailContainer = document.getElementById('detail-container');
 
 // load phones from api 
 function loadPhones() {
@@ -36,6 +35,7 @@ function loadPhones() {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data.slice(0,20)));
+        detailContainer.textContent = '';
 }
 
 // No result found 
@@ -54,16 +54,14 @@ function details(id) {
     fetch(url)
         .then(res => res.json())
         .then(data => showDetails(data.data));
-
-
 }
 // show details on the ui 
 function showDetails(phone) {
     const features = phone.mainFeatures;
-    const others = phone.others;
+    const others = phone.others? phone.others: 'No Data Found!';
   
     // console.log(singleSensor)
-    const detailContainer = document.getElementById('detail-container');
+    // const detailContainer = document.getElementById('detail-container');
     const modal = document.createElement('div');
     modal.classList.add('card');
     modal.innerHTML = `
@@ -91,21 +89,15 @@ function showDetails(phone) {
               <p>Chipset: <span> ${features.chipSet} </span></p>
                     <p>Display: <span> ${features.displaySize} </span></p>
                     <p>Sensors: 
-                    <span> ${features.sensors[0]}</span>
-                    <span> ${features.sensors[1]? features.sensors[1]:''} </span>
-                    <span> ${features.sensors[2]? features.sensors[2]:''} </span>
-                    <span> ${features.sensors[3]? features.sensors[3]:''} </span>
-                    <span> ${features.sensors[4]? features.sensors[4]:''} </span>
-                    <span> ${features.sensors[5]? features.sensors[5]:''} </span>
-                    <span> ${features.sensors[6]? features.sensors[6]:''} </span>
+                    <span> ${features.sensors}</span>
                     </p>
                     <p class="text-center others"> Others </p>
-                    <p>Bluetooth: <span> ${others.Bluetooth} </span></p>
-                    <p>GPS: <span> ${others.GPS} </span></p>
-                    <p>WLAN: <span> ${others.WLAN} </span></p>
-                    <p>NFC: <span> ${others.NFC} </span>
-                    Radio: <span> ${others.Radio} </span>
-                    USB: <span> ${others.USB} </span></p>
+                    <p>Bluetooth: <span> ${others.Bluetooth? others.Bluetooth:'N/A'} </span></p>
+                    <p>GPS: <span> ${others.GPS? others.GPS : 'N/A'} </span></p>
+                    <p>WLAN: <span> ${others.WLAN? others.WLAN: 'N/A'} </span></p>
+                    <p>NFC: <span> ${others.NFC? others.NFC: 'N/A'} </span>
+                    Radio: <span> ${others.Radio? others.Radio : 'N/A'} </span>
+                    USB: <span> ${others.USB? others.USB: 'N/A'} </span></p>
               </div>
             </div>
          </div>
@@ -122,9 +114,6 @@ function showDetails(phone) {
         detailContainer.removeChild(modal);
     });
 }
-
-
-
 
 // Display phones on the ui 
 function displayPhones(phones) {
