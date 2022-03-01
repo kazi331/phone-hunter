@@ -55,6 +55,37 @@ body {
     padding-bottom: 5px;
 }
 
+p.main,
+p.others {
+    background-color: #6175e7;
+    padding: 2px 5px;
+    color: white;
+    margin: 10px 0 !important;
+}
+p.main{
+    margin-top: 0;
+}
+.features p {
+    margin: 6px 0px;
+    font-weight: bold;
+}
+.features span, .image-side p span{
+    font-weight: normal;
+    /* font-size: .9em; */
+    background-color: #edf0fd;
+    border-radius: 4px;
+    padding: 0px 6px;
+    margin: 2px;
+}
+
+.image-side p{
+margin: 4px;
+font-weight: bold;
+}
+
+.card-title{
+    margin: 8px 0;
+}
 .brand-detail {
     display: flex;
     justify-content: space-between;
@@ -82,6 +113,9 @@ body {
     padding-bottom: .5rem;
     box-shadow: 0px 0px 12px 8px #72727212, 0 0 2px 2px #80808014;
     border: none;
+}
+.card-body {
+    padding: 1rem 0rem !important;
 }
 
 .empty {

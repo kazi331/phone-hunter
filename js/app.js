@@ -55,49 +55,49 @@ function details(id) {
     fetch(url)
         .then(res => res.json())
         .then(data => showDetails(data.data));
-    // console.log(url);
 
 
 }
-
+// show details on the ui 
 function showDetails(phone) {
-    // console.log(phone.mainFeatures);
     const features = phone.mainFeatures;
     const others = phone.others;
-    console.log(others.Bluetooth, others.Radio );
+    console.log(others.Bluetooth, others.Radio);
     const detailContainer = document.getElementById('detail-container');
-    detailContainer.classList.add('card');
-    detailContainer.innerHTML = `
+    const modal = document.createElement('div');
+    modal.classList.add('card');
+    modal.innerHTML = `
     
     <div class="row g-0">
          <div class="row text-dark">
          <div class="col-md-4">
             <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
          </div>
-         <div class="col-md-8">
-                <h5 class="card-title">${phone.name}</h5>
+         <div class="col-md-8 image-side">
+                <h5 class="card-title">Model: ${phone.name}</h5>
               <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p>
-              <p class="card-text">Release: <small>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </small></p>
+              <p class="card-text">Release: <span>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </span></p>
               <p>RAM:     <span> ${features.memory} </span></p>
               <p>Storage: <span> ${features.storage} </span></p>
-         </div>
-         </div>
-            <div class="row">
-            <div class="col-md-12">
-            <div class="card-body text-dark">
-                <button  class="close">&times;</button>
-                <div>
-                    <p class="text-center"> Main Features </p>
-                    <p>Chipset: <span> ${features.chipSet} </span></p>
+              
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-12">
+              <div class="card-body text-dark">
+              <button  class="close">&times;</button>
+              <div class="features">
+              <p class="text-center main"> Main Features </p>
+              <p>Chipset: <span> ${features.chipSet} </span></p>
                     <p>Display: <span> ${features.displaySize} </span></p>
                     <p>Sensors: <span> ${features.sensors} </span></p>
-                    <p class="text-center"> Others </p>
+                    <p class="text-center others"> Others </p>
                     <p>Bluetooth: <span> ${others.Bluetooth} </span></p>
                     <p>GPS: <span> ${others.GPS} </span></p>
                     <p>WLAN: <span> ${others.WLAN} </span></p>
-                    <p>NFC: <span> ${others.NFC} </span></p>
-                    <p>Radio: <span> ${others.Radio} </span></p>
-                    <p>USB: <span> ${others.USB} </span></p>
+                    <p>NFC: <span> ${others.NFC} </span>
+                    Radio: <span> ${others.Radio} </span>
+                    USB: <span> ${others.USB} </span></p>
               </div>
             </div>
          </div>
@@ -105,12 +105,11 @@ function showDetails(phone) {
     </div>
     
     `;
+    detailContainer.appendChild(modal);
     // close modal
     const closeModal = document.querySelector('.close');
     closeModal.addEventListener('click', () => {
-        const parent = closeModal.parentNode.parentNode.parentNode;
-        parent.style.display = 'none';
-        detailContainer.classList.remove('card');
+        detailContainer.removeChild(modal);
     });
 }
 
@@ -144,5 +143,3 @@ function displayPhones(phones) {
         spinnerAction(false);
     });
 }
-
-// Show Details on the ui 
