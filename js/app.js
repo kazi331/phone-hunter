@@ -36,7 +36,6 @@ function loadPhones() {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
-    // console.log(url);
 }
 
 // No result found 
@@ -62,7 +61,6 @@ function details(id) {
 function showDetails(phone) {
     const features = phone.mainFeatures;
     const others = phone.others;
-    console.log(others.Bluetooth, others.Radio);
     const detailContainer = document.getElementById('detail-container');
     const modal = document.createElement('div');
     modal.classList.add('card');
@@ -105,10 +103,12 @@ function showDetails(phone) {
     </div>
     
     `;
-    detailContainer.appendChild(modal);
-    // close modal
-    const closeModal = document.querySelector('.close');
-    closeModal.addEventListener('click', () => {
+   
+    detailContainer.innerHTML = '';
+        detailContainer.appendChild(modal);
+        // close modal
+        const closeModal = document.querySelector('.close');
+        closeModal.addEventListener('click', () => {
         detailContainer.removeChild(modal);
     });
 }
@@ -124,7 +124,6 @@ function displayPhones(phones) {
     } else {
         empty(false);
     }
-    // console.log(phones.length);
     const resultContainer = document.getElementById('search-result');
     resultContainer.innerHTML = ''; // remove previous items 
     phones.forEach(phone => {
