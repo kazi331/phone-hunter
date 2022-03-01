@@ -63,32 +63,46 @@ function details(id) {
 function showDetails(phone) {
     // console.log(phone.mainFeatures);
     const features = phone.mainFeatures;
-      
+    const others = phone.others;
+    console.log(others.Bluetooth, others.Radio );
     const detailContainer = document.getElementById('detail-container');
     detailContainer.classList.add('card');
     detailContainer.innerHTML = `
     
     <div class="row g-0">
-          <div class="col-md-4">
+         <div class="row text-dark">
+         <div class="col-md-4">
             <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body text-dark">
-            <button  class="close">&times;</button>
-              <h5 class="card-title">${phone.name}</h5>
+         </div>
+         <div class="col-md-8">
+                <h5 class="card-title">${phone.name}</h5>
               <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p>
               <p class="card-text">Release: <small>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </small></p>
-              <div>
-              <p class="text-center"> Main Features </p>
-              <p>Chipset: <spa> ${features.chipSet} </span></p>
-              <p>Display: <spa> ${features.displaySize} </span></p>
-              <p>Memory: <spa> ${features.memory} </span></p>
-              <p>Memory: <spa> ${features.storage} </span></p>
-              <p>Sensors: <spa> ${features.sensors} </span></p>
+              <p>RAM:     <span> ${features.memory} </span></p>
+              <p>Storage: <span> ${features.storage} </span></p>
+         </div>
+         </div>
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card-body text-dark">
+                <button  class="close">&times;</button>
+                <div>
+                    <p class="text-center"> Main Features </p>
+                    <p>Chipset: <span> ${features.chipSet} </span></p>
+                    <p>Display: <span> ${features.displaySize} </span></p>
+                    <p>Sensors: <span> ${features.sensors} </span></p>
+                    <p class="text-center"> Others </p>
+                    <p>Bluetooth: <span> ${others.Bluetooth} </span></p>
+                    <p>GPS: <span> ${others.GPS} </span></p>
+                    <p>WLAN: <span> ${others.WLAN} </span></p>
+                    <p>NFC: <span> ${others.NFC} </span></p>
+                    <p>Radio: <span> ${others.Radio} </span></p>
+                    <p>USB: <span> ${others.USB} </span></p>
               </div>
             </div>
-          </div>
+         </div>
         </div>
+    </div>
     
     `;
     // close modal
@@ -122,7 +136,7 @@ function displayPhones(phones) {
                 <img src="${phone.image}" class="card-img-top" alt="${phone.phone_name}">
                 <div class="card-body">
                     <h5 class="card-title">${phone.phone_name}</h5>
-                    <div class="brand-detail"> <p class="brand card-text"><span> ${phone.brand} </span> </p> <button onclick="details('${phone.slug}')">Details</button> </div>
+                    <div class="brand-detail"> <p class="brand card-text"><span> ${phone.brand} </span> </p> <a href="#" onclick="details('${phone.slug}')">Details</a> </div>
                 </div>
             </div>
         `;
