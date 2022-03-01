@@ -7,13 +7,6 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
-// display data on ui 
-function displayPhone(phones) {
-    console.log(phones);
-}
-
-// loadPhones();
-
 // load spinner 
 const spinner = document.getElementById('spinner');
 function spinnerAction(isLoading) {
@@ -27,7 +20,6 @@ function spinnerAction(isLoading) {
 // Enter Key search action 
 query.addEventListener('keyup', (e) => {
     if (e.key == 'Enter') {
-        console.log(query.value);
         loadPhones();
         query.value = '';
         spinnerAction(true);
@@ -41,7 +33,7 @@ function loadPhones() {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
-    console.log(url);
+    // console.log(url);
 }
 
 // No result found 
@@ -54,19 +46,23 @@ function empty(isEmpty) {
     }
 };
 
-
+// load details 
 function details(id) {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
     .then(res=>res.json())
     .then(data=>showDetails(data.data));
-    console.log(url);
+    // console.log(url);
 
 
 }
 function showDetails(phone){
-    console.log(phone.data);
+    // console.log(phone.mainFeatures);
+    const entities = Object.entries(phone.mainFeatures);
+    delete entities.memory;
+    console.log(entities);
     const detailContainer = document.getElementById('detail-container');
+    detailContainer.classList.add('card');
     detailContainer.innerHTML = `
     
     <div class="row g-0">
@@ -76,8 +72,10 @@ function showDetails(phone){
           <div class="col-md-8">
             <div class="card-body text-dark">
               <h5 class="card-title">${phone.name}</h5>
-              <p class="card-text"></p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text">Release: <small>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </small></p>
+              <div>
+              Main Features: ${entities}
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +94,7 @@ function displayPhones(phones) {
     } else {
         empty(false);
     }
-    console.log(phones.length);
+    // console.log(phones.length);
     const resultContainer = document.getElementById('search-result');
     resultContainer.innerHTML = ''; // remove previous items 
     phones.forEach(phone => {
