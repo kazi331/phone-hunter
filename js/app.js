@@ -59,13 +59,30 @@ function details(id) {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
     .then(res=>res.json())
-    .then(data=>showDetails(data));
+    .then(data=>showDetails(data.data));
     console.log(url);
 
 
 }
-function showDetails(country){
-    console.log(country);
+function showDetails(phone){
+    console.log(phone.data);
+    const detailContainer = document.getElementById('detail-container');
+    detailContainer.innerHTML = `
+    
+    <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body text-dark">
+              <h5 class="card-title">${phone.name}</h5>
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+    
+    `;
 }
 
 
