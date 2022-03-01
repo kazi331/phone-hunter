@@ -1,14 +1,18 @@
 body{
     color: white;
-    /* background-color: #36414c; */
+    background-color: #f4f6ff62;
 }
+.container{
+    max-width: 1024px;
+}
+
 .search-box {
     outline: none;
     padding: 0px 10px;
     color: #78828f;
     font-size: 1.1em;
     border-radius: 5px;
-    /* background-color: #36414c; */
+    background-color: #f4f6ff62;
 }
 
 .search-container {
@@ -17,6 +21,9 @@ body{
     user-select: none;
 }
 
+.heading{
+    color: #6175e7;
+}
 
 .hints {
     color: #8d99aa;
@@ -29,9 +36,10 @@ body{
     margin-bottom: 0 !important;
 }
 .brand span{
-    background-color: #f1f1f1;
+    background-color: #edf0fd;
     border-radius: 4px;
-    padding: 1px 6px;
+    padding: 2px 6px;
+    padding-bottom: 5px;
 }
 .brand-detail {
     display: flex;
@@ -39,10 +47,10 @@ body{
     align-items: center;
 }
 .brand-detail button{
-    background-color: #0d6efd;
+    background-color: #6175e7;;
     color: white !important;
     border-radius: 4px;
-    padding: 0px 6px;
+    padding: 2px 6px;
     color: black;
     text-decoration: none;
     border:none;

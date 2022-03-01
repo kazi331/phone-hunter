@@ -60,7 +60,7 @@ function showDetails(phone){
     // console.log(phone.mainFeatures);
     const entities = Object.entries(phone.mainFeatures);
     delete entities.memory;
-    console.log(entities);
+    console.log(phone.mainFeatures);
     const detailContainer = document.getElementById('detail-container');
     detailContainer.classList.add('card');
     detailContainer.innerHTML = `
@@ -105,7 +105,7 @@ function displayPhones(phones) {
                 <img src="${phone.image}" class="card-img-top" alt="${phone.phone_name}">
                 <div class="card-body">
                     <h5 class="card-title">${phone.phone_name}</h5>
-                    <div class="brand-detail"> <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p> <button onclick="details('${phone.slug}')">Details</button> </div>
+                    <div class="brand-detail"> <p class="brand card-text"><span> ${phone.brand} </span> </p> <button onclick="details('${phone.slug}')">Details</button> </div>
                 </div>
             </div>
         `;
