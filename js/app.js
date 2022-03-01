@@ -7,7 +7,22 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
+const searchValue = query.value;
 
+// fetch phone from api 
+function loadPhones() {
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => console.log(data));
+}
+
+// display data on ui 
+function displayPhone(phones) {
+    console.log(phones);
+}
+
+loadPhones();
 
 
 // enable spinner 
