@@ -1,9 +1,10 @@
-body{
+body {
     color: white;
     background-color: #f4f6ff62;
 }
-.container{
-    max-width: 1024px;
+
+.container {
+    max-width: 1180px;
 }
 
 .search-box {
@@ -21,7 +22,7 @@ body{
     user-select: none;
 }
 
-.heading{
+.heading {
     color: #6175e7;
 }
 
@@ -32,40 +33,47 @@ body{
     padding: 1px 8px;
     font-weight: 500;
 }
-.brand{
+
+.brand {
     margin-bottom: 0 !important;
 }
-.brand span{
+
+.brand span {
     background-color: #edf0fd;
     border-radius: 4px;
     padding: 2px 6px;
     padding-bottom: 5px;
 }
+
 .brand-detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.brand-detail button{
-    background-color: #6175e7;;
+
+.brand-detail button {
+    background-color: #6175e7;
+    ;
     color: white !important;
     border-radius: 4px;
     padding: 2px 6px;
     color: black;
     text-decoration: none;
-    border:none;
+    border: none;
 }
-.brand-detail button:hover{
+
+.brand-detail button:hover {
     cursor: pointer;
 }
 
-.card{
+.card {
     padding: 20px;
     border-radius: 10px !important;
     padding-bottom: .5rem;
     box-shadow: 0px 0px 12px 8px #72727212, 0 0 2px 2px #80808014;
-    border:none;
+    border: none;
 }
+
 .empty {
     display: none;
     background: #ff612f;
@@ -77,10 +85,21 @@ body{
 
 /* Details panel  */
 
-#detail-container{
+#detail-container {
     position: sticky;
     top: 20px;
     z-index: 100;
+}
+
+.close {
+    color: red;
+    font-weight: bolder;
+    font-size: 2rem;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
 }
 
 
@@ -89,10 +108,8 @@ body{
 
 
 
-
-
 /* spinner style and animation  */
-#spinner{
+#spinner {
     display: none;
     align-items: center;
     justify-content: center;

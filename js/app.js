@@ -9,6 +9,7 @@ document.addEventListener('keyup', (e) => {
 
 // load spinner 
 const spinner = document.getElementById('spinner');
+
 function spinnerAction(isLoading) {
     if (isLoading) {
         spinner.style.display = 'flex';
@@ -25,6 +26,8 @@ query.addEventListener('keyup', (e) => {
         spinnerAction(true);
     }
 });
+
+
 
 
 // load phones from api 
@@ -50,17 +53,17 @@ function empty(isEmpty) {
 function details(id) {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
-    .then(res=>res.json())
-    .then(data=>showDetails(data.data));
+        .then(res => res.json())
+        .then(data => showDetails(data.data));
     // console.log(url);
 
 
 }
-function showDetails(phone){
+
+function showDetails(phone) {
     // console.log(phone.mainFeatures);
-    const entities = Object.entries(phone.mainFeatures);
-    delete entities.memory;
-    console.log(phone.mainFeatures);
+    const features = Object.entries(phone.mainFeatures);
+    
     const detailContainer = document.getElementById('detail-container');
     detailContainer.classList.add('card');
     detailContainer.innerHTML = `
@@ -71,16 +74,24 @@ function showDetails(phone){
           </div>
           <div class="col-md-8">
             <div class="card-body text-dark">
+            <button  class="close">&times;</button>
               <h5 class="card-title">${phone.name}</h5>
               <p class="card-text">Release: <small>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </small></p>
               <div>
-              Main Features: ${entities}
+              Main Features: 
               </div>
             </div>
           </div>
         </div>
     
     `;
+    // close modal
+    const closeModal = document.querySelector('.close');
+    closeModal.addEventListener('click', () => {
+        const parent = closeModal.parentNode.parentNode.parentNode;
+        parent.style.display = 'none';
+        detailContainer.classList.remove('card');
+    });
 }
 
 
@@ -115,4 +126,3 @@ function displayPhones(phones) {
 }
 
 // Show Details on the ui 
-
