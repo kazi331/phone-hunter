@@ -62,8 +62,8 @@ function details(id) {
 
 function showDetails(phone) {
     // console.log(phone.mainFeatures);
-    const features = Object.entries(phone.mainFeatures);
-    
+    const features = phone.mainFeatures;
+      
     const detailContainer = document.getElementById('detail-container');
     detailContainer.classList.add('card');
     detailContainer.innerHTML = `
@@ -76,9 +76,15 @@ function showDetails(phone) {
             <div class="card-body text-dark">
             <button  class="close">&times;</button>
               <h5 class="card-title">${phone.name}</h5>
+              <p class="brand card-text">Brand: <span> ${phone.brand} </span> </p>
               <p class="card-text">Release: <small>${phone.releaseDate ? phone.releaseDate : 'No release date found!'} </small></p>
               <div>
-              Main Features: 
+              <p class="text-center"> Main Features </p>
+              <p>Chipset: <spa> ${features.chipSet} </span></p>
+              <p>Display: <spa> ${features.displaySize} </span></p>
+              <p>Memory: <spa> ${features.memory} </span></p>
+              <p>Memory: <spa> ${features.storage} </span></p>
+              <p>Sensors: <spa> ${features.sensors} </span></p>
               </div>
             </div>
           </div>
