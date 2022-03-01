@@ -1,0 +1,25 @@
+1. 'phone hunter' name must be changed
+2. If no phones found, show a msg on the ui.
+3. detail info button
+4. Details panel: 
+    4.1 : image,
+    4.2: name,
+    4.3: release date? relase date: 'No release date found'
+    4.4: phone features should be shown
+5. function should be arrow function
+6. minimum 6 commits
+
+Bonus::
+
+1. show sensor info
+2. others? others: 'no data'
+3. limit result to 20,
+4. cleaner code, comment, organized
+
+
+Optional:: recommended
+
+
+1. show all button
+2. spinner
+3. case-insensitive
