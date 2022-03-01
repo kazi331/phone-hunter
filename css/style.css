@@ -20,6 +20,8 @@ body {
     border: 1px solid #8d99aa93 !important;
     border-radius: 5px;
     user-select: none;
+    max-width: 700px;
+    ;
 }
 
 .heading {
@@ -32,6 +34,14 @@ body {
     border-radius: 5px;
     padding: 1px 8px;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* For desktop: */
+    .hints {
+        display: none;
+    }
 }
 
 .brand {
