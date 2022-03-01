@@ -35,7 +35,7 @@ function loadPhones() {
     const url = `https://openapi.programming-hero.com/api/phones?search=${query.value}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayPhones(data.data));
+        .then(data => displayPhones(data.data.slice(0,20)));
 }
 
 // No result found 
